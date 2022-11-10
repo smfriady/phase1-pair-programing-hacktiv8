@@ -31,6 +31,10 @@ class Controller {
             .catch((err) => res.send(err));
 
     }
+
+    static loginPage(req, res){
+        res.render('login')
+    }
 }
 
 module.exports = Controller;
