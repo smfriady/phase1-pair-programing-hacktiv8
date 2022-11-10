@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const indexRouter = require('./routes');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+const categoriesRouter = require('./routes/categories');
 
 const port = 3000;
 
@@ -10,6 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // index router
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/categories', categoriesRouter);
+app.use('/products', productsRouter);
 
 app.listen(port, (err) => {
     if (err) {
