@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "tokted_ecommerce_db",
+    "database": "beauty_eyes_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
