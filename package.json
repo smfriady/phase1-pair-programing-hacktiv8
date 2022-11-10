@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.25.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.5.2"
+  },
+  "name": "phase1-pair-project-hacktiv8",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/smfriady/phase1-pair-project-hacktiv8.git",
+  "author": "Sony MelliFriady <zoenasun@gmail.com>",
+  "license": "MIT"
+}
