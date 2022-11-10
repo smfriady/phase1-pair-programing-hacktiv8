@@ -1,0 +1,32 @@
+[
+    {
+        "name": "sony",
+        "email": "lgiovannelli0@sbwire.com",
+        "password": "Ooz2Xw",
+        "role": "Admin"
+    },
+    {
+        "name": "bagus",
+        "email": "hayton1@dailymotion.com",
+        "password": "0ul5wp",
+        "role": "Admin"
+    },
+    {
+        "name": "Myer",
+        "email": "mpointer2@ezinearticles.com",
+        "password": "UsWDc6ZYmGI",
+        "role": "Customer"
+    },
+    {
+        "name": "Gardie",
+        "email": "gmelmoth3@google.ca",
+        "password": "P8Vw2lb1O5",
+        "role": "Customer"
+    },
+    {
+        "name": "Elana",
+        "email": "emeadowcraft4@quantcast.com",
+        "password": "JDGfBoURs5",
+        "role": "Customer"
+    }
+]

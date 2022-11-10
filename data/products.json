@@ -1,0 +1,18 @@
+[
+    {
+        "name": "hayejin",
+        "description": "Hypoallergenic Vegan Eye Cream yang merawat dengan lembut mulai dari wajah sampai bagian leher.",
+        "price": 210000,
+        "stock": 50,
+        "image": "https://images.soco.id/9f2d8204-feb8-47bb-ae99-0221581450c8-.jpg",
+        "CategoryId": 1
+    },
+    {
+        "name": "vaselin",
+        "description": "Kami percaya semua orang berhak memiliki kulit sehat. Karena itu, kami menciptakan Vaseline Lip Care Original Lip Balm dengan 100% kemurnian Vaseline Jelly yang luar biasa. Melembapkan bibir dengan tahan lama, melembutkan dan menutrisi bibir yang sangat kering sehingga terasa nyaman seketika.",
+        "price": 30100,
+        "stock": 10,
+        "image": "https://images.soco.id/eafebb63-38e5-4327-9134-f1b7b3d69697-image-0-1622084581484",
+        "CategoryId": 2
+    }
+]
