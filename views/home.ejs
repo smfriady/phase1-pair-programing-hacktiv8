@@ -14,17 +14,32 @@
     <style>
         .logo {
             font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+        }
+        .text-capitalize {
+            text-transform: capitalize;
         }
     </style>
 </head>
 
 <body>
     <!-- Start Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <h1 class="logo">Beauty Eyes</h1>
-            </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="/"> BeautyEyes</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBeauty"
+                aria-controls="navBeauty" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navBeauty">
+                <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
+                <div class="d-flex gap-3" role="search">
+                    <a href="/register" type="button" class="btn btn-primary">Register</a>
+                    <a href="/login" type="button" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+
         </div>
 
         <div class="d-flex justify-content-between" style="width: 200px ; margin-right:50px;">
@@ -35,7 +50,7 @@
     <!-- End Navbar -->
     <div class="container">
         <!-- Start Slider Image -->
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide mb-3" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://www.soco.id/cdn-cgi/image/w=1200,format=auto,dpr=1.45/https://images.soco.id/f517e0a3-fe3b-49d2-99d7-9b000a4a7c39-.jpg"
@@ -72,6 +87,44 @@
             </button>
         </div>
         <!-- End Slider Image -->
+        <div class="row">
+            <div class="col-2">
+                <ul class="list-group"> 
+                    <% categories.forEach(category => { %> 
+                        <li class="list-group-item">
+                            <a class="badges text-capitalize" href="/?category=<%= category.name.trim() %>"><%= category.name %></a>
+                        </li>
+                    <% }); %> 
+                </ul>
+            </div>
+            <div class="col-10">
+                <div class="row"> 
+                        <% products.forEach(product => { %> 
+                            <div class="col-3">
+                            <div class="card" style="width: 15rem;">
+                                <img src="<%= product.image %>" class="card-img-top p-3" alt="<%= product.name %>">
+                                <div class="card-body">
+                                  <h5 class="card-title text-capitalize"><%= product.name %></h5>
+                                  <p class="card-text"><%= formatCurrency(product.price) %></p>
+                               
+                                  <div class="btn-group d-flex justify-content-between">
+                                    <p class="card-text">
+                                        <span class="badge bg-primary text-capitalize"><%= product.Category.name %></span>
+                                    </p>
+                                    <a href="/" >
+                                        <span class="badge bg-secondary">Details</span>
+                                    </a> 
+                                  </div> 
+                                </div>
+                              </div>
+                            </div>
+                        <% }); %> 
+                </div>  
+            </div>
+        </div>
+        <!-- start Category -->
+        
+        <!-- end Category -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
