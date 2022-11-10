@@ -33,7 +33,12 @@
                           <h5 class="card-text"><%= formatCurrency(product.price) %></h5> 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                          <% if(isLoggin){ %>
+                            <a href="/orders" class="btn btn-secondary">Add to Cart</a> 
+                          <%} else{ %>
+                            <a href="/login" class="btn btn-secondary">Add to Cart</a> 
+                          <% }%> 
+                           
                         </div>
                       </div>
                     </div>
