@@ -1,18 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Controller = require('../controllers/users')
+const Controller = require('../controllers/users');
+const authMiddleware = require('../middlewares/authMiddleware');
 
-router.post('/login', Controller.login);
+router.post('/login', Controller.login); 
 
-router.use((req, res, next) => {
-    if(req.session.email){
-        next()
-    }else{
-        res.redirect('/login?error=login dulu yaa')
-    }
-})
-
-router.get('/', Controller.user)
+router.get('/', authMiddleware, Controller.user)
 router.get('/logout', Controller.logout)
 
 module.exports = router;
