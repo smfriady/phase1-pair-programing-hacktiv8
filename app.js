@@ -10,6 +10,7 @@ const port = 3000;
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 
 // index router
 app.use('/', indexRouter);
