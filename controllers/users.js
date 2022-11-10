@@ -28,19 +28,20 @@ class Controller {
     }
 
     static user(req, res) {
+        const isLoggin = req.session.email;
         User.findOne({ where: { email: req.session.email } })
             .then(data => {
                 console.log(data.role);
                 if (data.role == 'Admin') {
                     User.findAll()
                         .then(list => { 
-                            res.render('akun', { data, list });
+                            res.render('akun', { data, list, isLoggin });
                         })
                         .catch(err => {
                             res.send(err);
                         });
                 } else {
-                    res.render('akun', { data, list: false });
+                    res.render('akun', { data, list: false, isLoggin });
                 }
 
             })
