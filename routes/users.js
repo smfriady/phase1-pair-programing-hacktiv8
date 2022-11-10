@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const Controller = require('../controllers/users')
 
+router.post('/login', Controller.login);
 
-router.get('/', (req, res) => {
-    res.send('Hello');
-});
+router.use((req, res, next) => {
+    if(req.session.email){
+        next()
+    }else{
+        res.redirect('/login?error=login dulu yaa')
+    }
+})
+
+router.get('/', Controller.user)
 
 module.exports = router;
