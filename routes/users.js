@@ -13,5 +13,6 @@ router.use((req, res, next) => {
 })
 
 router.get('/', Controller.user)
+router.get('/logout', Controller.logout)
 
 module.exports = router;
