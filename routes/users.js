@@ -5,6 +5,7 @@ const Controller = require('../controllers/users')
 router.post('/login', Controller.login);
 
 router.use((req, res, next) => {
+    console.log(req.session.email);
     if(req.session.email){
         next()
     }else{
