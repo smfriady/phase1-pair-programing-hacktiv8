@@ -7,7 +7,7 @@ class Controller {
      */
     static homePage(req, res) {
         const { category } = req.query; 
-        
+        const isLoggin = req.session.email;
         const options = {
             include: { 
                 model: Category 
@@ -27,13 +27,14 @@ class Controller {
         Product.findAll(options)
             .then((data) => dataProduct = data)
             .then(() => Category.findAll())
-            .then((dataCategory) => res.render('home', { categories: dataCategory, products: dataProduct, formatCurrency }))
+            .then((dataCategory) => res.render('home', { categories: dataCategory, products: dataProduct, formatCurrency, isLoggin }))
             .catch((err) => res.send(err));
 
     }
 
     static loginPage(req, res){
-        res.render('login')
+        const isLoggin = req.session.email;
+        res.render('login', { isLoggin })
     }
 }
 
