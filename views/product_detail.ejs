@@ -28,17 +28,38 @@
                             <span class="badge bg-primary text-capitalize"><%= product.Category.name %></span>
                           </p>
                           <p class="card-text">
-                            <small class="badge bg-secondary">sisa stock : <%= product.stock %></small>
+                            <% if (!isNaN(cartQrty)) { %>
+                              <small class="badge bg-secondary">sisa stock : <%= product.stock - cartQrty%></small>
+                            <% } else { %>
+                              <small class="badge bg-secondary">sisa stock : <%= product.stock %></small>
+                            <% } %> 
+                            
                           </p>
-                          <h5 class="card-text"><%= formatCurrency(product.price) %></h5> 
+
+                          <% if (cartQrty) { %>
+                            <h5 class="card-text"><%= formatCurrency(product.price * cartQrty) %></h5> 
+                          <% } %> 
+
+                          
                         </div>
                         <div class="card-footer">
                           <% if(isLoggin){ %>
-                            <a href="/orders" class="btn btn-secondary">Add to Cart</a> 
+                            <% if((product.stock-cartQrty) === 0) { %>
+                              <a href="/products/<%= product.name %>?qty=<%= cartQrty %>" class="btn btn-primary">Stok Habis</a> 
+                            <% } else { %>
+                              <a href="/products/<%= product.name %>?qty=<%= cartQrty ? cartQrty + 1 : 1%>" class="btn btn-secondary">Add to Cart</a>
+                              
+                            <% }%> 
+                            
                           <%} else{ %>
                             <a href="/login" class="btn btn-secondary">Add to Cart</a> 
-                          <% }%> 
-                           
+                          <% }%>
+
+                           <% if (cartQrty > 0) { %>
+                            <a href="/products/<%= product.name %>" class="btn btn-secondary">Cancel to Cart</a>
+                            <a href="/products/<%= product.name %>/orders/<%= cartQrty %>/<%= product.price * cartQrty %>/<%= product.id %>"class="btn btn-primary">Pay</a>
+                         
+                            <% } %> 
                         </div>
                       </div>
                     </div>

@@ -21,13 +21,15 @@ class Controller {
             }
         };
  
-
+        let cartQrty = req.query.qty
         let dataProduct;
 
         Product.findAll(options)
             .then((data) => dataProduct = data)
             .then(() => Category.findAll())
-            .then((dataCategory) => res.render('home', { categories: dataCategory, products: dataProduct, formatCurrency, isLoggin }))
+            .then((dataCategory) => res.render('home', { 
+                categories: dataCategory, products: dataProduct, formatCurrency, isLoggin, cartQrty 
+            }))
             .catch((err) => res.send(err));
 
     }
