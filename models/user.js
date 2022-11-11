@@ -16,8 +16,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Name is not empty"
+        },
+        notNull: {
+          msg: "Name is not empty"
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Email is not empty"
+        },
+        notNull: {
+          msg: "Email is not empty"
+        }
+      }
+    },
     password: DataTypes.TEXT,
     role: {
       type: DataTypes.ENUM,
@@ -26,8 +48,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'Customer',
       validate: {
         roleValidator(value) {
-          if (value !== "Admin" || value !== "Customer") {
-            throw new Error("No role choose");
+          console.log(value);
+          if (value !== "Admin") {
+            if (value !== "Customer") {
+              throw new Error("No role choose");
+            }
           }
         }
       }

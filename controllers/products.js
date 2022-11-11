@@ -84,7 +84,7 @@ class Controller {
                 }
             })
             .then(() => Product.update({ stock: tempDataProduct.stock - payload.quantity }, { where: { id: tempDataProduct.id } }))
-            .then(() => res.redirect('/'))
+            .then(() => res.redirect('/users'))
             .catch((err) => res.send(err));
 
 
