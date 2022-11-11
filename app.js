@@ -6,7 +6,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const categoriesRouter = require('./routes/categories');
 
-const port = 3000;
+const PORT = process.env.PORT || 5000
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -28,10 +28,10 @@ app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
 
-app.listen(port, (err) => {
+app.listen(PORT, (err) => {
     if (err) {
         console.log(err, `Server is error ${err}`);
     } else {
-        console.log(`Server up, app listening on port ${port}`);
+        console.log(`Server up, app listening on port ${PORT}`);
     }
 });
