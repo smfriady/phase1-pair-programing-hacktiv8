@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
          secure: false,
          sameSite: true
