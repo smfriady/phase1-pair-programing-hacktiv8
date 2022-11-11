@@ -61,5 +61,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+  /**
+   * Hooks untuk hash password
+   */
   return User;
 };

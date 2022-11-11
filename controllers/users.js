@@ -25,21 +25,21 @@ class Controller {
             }
         })
             .catch(err => {
-                console.log(err);
+                res.send(err);
             });
     }
 
     static user(req, res) {
         const isLoggin = req.session.email;
         const userId = req.session.userId
-        let cartQrty = req.query.qty;
+        let cartQrty = req.query.qty ? req.query.qty : 0;
 
         User.findOne({ where: { email: req.session.email } })
             .then(data => {
                 if (data.role == 'Admin') {
                     User.findAll()
                         .then(list => {
-                            res.render('akun', { data, list, isLoggin, cartQrty: 0 });
+                            res.render('akun', { data, list, isLoggin, cartQrty: 0  , dataOrder: undefined});
                         })
                         .catch(err => {
                             res.send(err);
@@ -54,7 +54,7 @@ class Controller {
                     
                 }
 
-            })
+            }) //then chaining
             .catch(err => {
                 res.send(err);
             });

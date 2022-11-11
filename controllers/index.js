@@ -27,7 +27,9 @@ class Controller {
 
         Product.findAll(options)
             .then((data) => dataProduct = data)
-            .then(() => Category.findAll())
+            .then(() => {
+                return Category.findAll() //
+            })
             .then((dataCategory) => res.render('home', {
                 categories: dataCategory, products: dataProduct, formatCurrency, isLoggin, cartQrty
             }))

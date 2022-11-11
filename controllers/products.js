@@ -7,11 +7,14 @@ class Controller {
         const { productName } = req.params;
         let qtyProduct = req.query.qty;
 
-        let cartQrty = 0;
+        let cartQrty = 0; 
 
         if (!isNaN(qtyProduct)) {
             cartQrty = +qtyProduct;
-        }
+        } 
+        /**
+         * else throw new Error
+         */
         const options = {
             include: {
                 model: Category
