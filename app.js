@@ -4,7 +4,6 @@ const session = require('express-session')
 const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
-const categoriesRouter = require('./routes/categories');
 
 const PORT = process.env.PORT || 5000
 
@@ -25,7 +24,6 @@ app.use(session({
 // index router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/categories', categoriesRouter);
 app.use('/products', productsRouter);
 
 app.listen(PORT, (err) => {

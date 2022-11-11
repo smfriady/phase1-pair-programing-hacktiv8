@@ -13,13 +13,70 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.Order);
       Product.belongsTo(models.Category);
     }
+
+    
   }
   Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    price: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
-    image: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Name is not empty"
+        },
+        notNull: {
+          msg: "Name is not empty"
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Description is not empty"
+        },
+        notNull: {
+          msg: "Description is not empty"
+        }
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Price is not empty"
+        },
+        notNull: {
+          msg: "Price is not empty"
+        }
+      }
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Stock is not empty"
+        },
+        notNull: {
+          msg: "Stock is not empty"
+        }
+      }
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Image is not empty"
+        },
+        notNull: {
+          msg: "Image is not empty"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Product',
