@@ -1,0 +1,75 @@
+<%- include('./partials/header.ejs') %> 
+    <!-- Start Navbar -->
+    <%- include('./partials/navbar.ejs') %> 
+    <!-- End Navbar -->
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <ul class="list-group"> 
+                    <% categories.forEach(category => { %> 
+                        <li class="list-group-item">
+                            <a class="badges text-capitalize" href="/?category=<%= category.name.trim() %>"><%= category.name %></a>
+                        </li>
+                    <% }); %> 
+                </ul>
+            </div>
+            <div class="col-10">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="<%= product.image %>" class="img-fluid rounded-start" alt="<%= product.name %>">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title text-capitalize"><%= product.name %></h5>
+                          <p class="card-text"><%= product.description %></p>
+                          <p class="card-text">
+                            category: 
+                            <span class="badge bg-primary text-capitalize"><%= product.Category.name %></span>
+                          </p>
+                          <p class="card-text">
+                            <% if (!isNaN(cartQrty)) { %>
+                              <small class="badge bg-secondary">sisa stock : <%= product.stock - cartQrty%></small>
+                            <% } else { %>
+                              <small class="badge bg-secondary">sisa stock : <%= product.stock %></small>
+                            <% } %> 
+                            
+                          </p>
+
+                          <% if (cartQrty) { %>
+                            <h5 class="card-text"><%= formatCurrency(product.price * cartQrty) %></h5> 
+                          <% } %> 
+
+                          
+                        </div>
+                        <div class="card-footer">
+                          <% if(isLoggin){ %>
+                            <% if((product.stock-cartQrty) === 0) { %>
+                              <a href="/products/<%= product.name %>?qty=<%= cartQrty %>" class="btn btn-primary">Stok Habis</a> 
+                            <% } else { %>
+                              <a href="/products/<%= product.name %>?qty=<%= cartQrty ? cartQrty + 1 : 1%>" class="btn btn-secondary">Add to Cart</a>
+                              
+                            <% }%> 
+                            
+                          <%} else{ %>
+                            <a href="/login" class="btn btn-secondary">Add to Cart</a> 
+                          <% }%>
+
+                           <% if (cartQrty > 0) { %>
+                            <a href="/products/<%= product.name %>" class="btn btn-secondary">Cancel to Cart</a>
+                            <a href="/products/<%= product.name %>/orders/<%= cartQrty %>/<%= product.price * cartQrty %>/<%= product.id %>"class="btn btn-primary">Pay</a>
+                         
+                            <% } %> 
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                </div>  
+            </div>
+        </div>
+        <!-- start Category -->
+        
+        <!-- end Category -->
+    </div>
+
+<%- include('./partials/footer.ejs') %> 

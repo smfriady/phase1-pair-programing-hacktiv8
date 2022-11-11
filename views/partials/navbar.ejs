@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container">
+        <a class="navbar-brand logo" href="/"> BeautyEyes</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBeauty"
+            aria-controls="navBeauty" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBeauty">
+            <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
+            <div class="d-flex gap-3" role="search">
+                <% if (isLoggin) { %>
+                    <a href="/users" type="button" class="btn btn-primary">My profile</a>
+                    <button href="/orders" type="button" class="btn btn-dark">
+                        Cart
+                        <span class="badge bg-primary"><%= cartQrty ? cartQrty : 0 %></span>
+                    </button>
+                    <a href="/logout" type="button" class="btn btn-primary">Logout</a>
+                    <% } else { %>
+                        <a href="/register" type="button" class="btn btn-primary">Register</a>
+                        <a href="/login" type="button" class="btn btn-primary">Login</a>     
+                    <% } %>  
+            </div>
+        </div> 
+    </div> 
+</nav>

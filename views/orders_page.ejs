@@ -1,0 +1,49 @@
+<%- include('./partials/header.ejs') %> 
+    <!-- Start Navbar -->
+    <%- include('./partials/navbar.ejs') %> 
+    <!-- End Navbar -->
+    <div class="container">
+        <div class="row"> 
+            <div class="col-10 offset-1">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="<%= product.image %>" class="img-fluid rounded-start" alt="<%= product.name %>">
+                      </div>
+                      <div class="col-md-8">
+                        <form action="/products/<%= product.name %>/orders/<%=qty%>/<%= nominal %>/<%= product.id %>" method="post">
+                            <div class="card-body">
+                            <h5 class="card-title text-capitalize"><%= product.name %></h5>  
+                            <table class="table">
+                                <thead>
+                                <tr> 
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr> 
+                                    <td><%= qty %></td>
+                                    <td><%= formatCurrency(product.price) %></td> 
+                                    <td><%= formatCurrency(nominal) %></td> 
+                                </tr> 
+                                </tbody>
+                            </table>  
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" class="btn btn-secondary" value="Bayar"></input>
+                            </div> 
+                        </form>
+                      </div>
+                    </div>
+                  </div> 
+                </div>  
+            </div>
+        </div>
+        <!-- start Category -->
+        
+        <!-- end Category -->
+    </div>
+
+<%- include('./partials/footer.ejs') %> 
