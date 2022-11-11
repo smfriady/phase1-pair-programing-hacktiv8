@@ -6,8 +6,12 @@
         <div class="row">
             <div class="col-8 offset-2">
                 <div class="card p-5">
-                    <h1 class="mb-5">Login Page</h1>
-                    <form action="/users/login" class="mb-5" method="post">
+                    <h1 class="mb-5">Register Page</h1>
+                    <form action="/register" class="mb-5" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control">
+                          </div>
                         <div class="mb-3">
                           <label class="form-label">Email address</label>
                           <input type="email" name="email" class="form-control">
@@ -17,10 +21,10 @@
                           <input type="password" name="password" class="form-control">
                         </div>
                         <div class="mt-5 d-flex">
-                            <button type="submit" class="btn btn-primary m-auto">Login</button>
+                            <button type="submit" class="btn btn-primary m-auto">register</button>
                         </div>
                         <div class="mt-5 d-flex">
-                            <a href="/register">Tidak punya akun? segera daftar</a>
+                            <a href="/login">Sudah punya akun? segera login</a>
                         </div> 
                     </form>
                 </div>

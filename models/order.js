@@ -13,6 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       Order.belongsTo(models.User);
       Order.belongsTo(models.Product);
     }
+
+    get paid(){
+      if(this.isPaid === true){
+        return 'Sudah dibayar'
+      }else{
+        return 'Belum Dibayar'
+      }
+    }
+
+    get deliver(){
+      if(this.isDelivered){
+        return 'Sudah Diantar'
+      }else{
+        return 'Dalam Perjalanan'
+      }
+    }
   }
   Order.init({
     quantity: DataTypes.INTEGER,
