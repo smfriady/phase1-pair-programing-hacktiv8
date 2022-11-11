@@ -12,6 +12,9 @@
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
   },
+  "scripts": {
+    "start": "node ./app.js"
+  },
   "name": "phase1-pair-project-hacktiv8",
   "version": "1.0.0",
   "main": "app.js",
